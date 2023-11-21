@@ -44,11 +44,13 @@ void insertion_sort_list(listint_t **list)
 
 	while (current)
 	{
-	while (prev != NULL && current->n < prev->n)
-	{
-		exchange_nodes(list, &prev, current);
-		print_list((const listint_t *)*list);
-	}
+		prev = current->prev;
+
+		while (prev != NULL && current->n < prev->n)
+		{
+			exchange_nodes(list, &prev, current);
+			print_list((const listint_t *)*list);
+		}
 	current = current->next;
 	}
 }
