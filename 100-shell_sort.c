@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /*
-* shell_sort - a function that sorts an array of integers in ascending order 
+* shell_sort -sorts an array of integers in ascending order
 * using the Shell sort algorithm, using a custom sequence
 * @array: the array we want to sort.
 * @size: the size of the array we want to sort.
@@ -20,7 +20,7 @@ void shell_sort(int *array, size_t size)
 
 	while (gap > 0)
 	{
-        outer = gap;
+		outer = gap;
 		while (outer < size)
 		{
 			current_value = array[outer];
@@ -33,7 +33,7 @@ void shell_sort(int *array, size_t size)
 			}
 
 			array[inner] = current_value;
-            outer++;
+			outer++;
 		}
 
 		gap = (gap - 1) / 2;
