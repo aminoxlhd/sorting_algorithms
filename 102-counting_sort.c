@@ -1,6 +1,4 @@
 #include "sort.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 /**
 * get_max_value - get the max value of an array.
@@ -21,7 +19,7 @@ int get_max_value(int *array, size_t size)
 	return (max_value);
 }
 /*
-* counting_sort -sorts an array of integers in ascending order
+* counting_sort : sorts an array of integers in ascending order
 * @array: the array we want to sort.
 * @size: the size of the array we want to sort.
 */
