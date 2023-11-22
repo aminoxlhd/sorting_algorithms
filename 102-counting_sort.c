@@ -1,5 +1,6 @@
 #include "sort.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
 * get_max_value - get the max value of an array.
@@ -9,7 +10,7 @@
 */
 int get_max_value(int *array, size_t size)
 {
-	int max_value;
+	int max_value = array[0];
 	size_t i;
 
 	for (i = 1; i < size; i++)
@@ -26,17 +27,16 @@ int get_max_value(int *array, size_t size)
 */
 void counting_sort(int *array, size_t size)
 {
-	int max_value = array[0];
+	int max_value;
 	int *count, *sorted;
 	size_t i;
 
-	if (!array)
+	if (!array  || size == 0)
 		return;
+	 max_value = get_max_value(array, size);
 
 	count = malloc((max_value + 1) * sizeof(int));
 	sorted = malloc(size * sizeof(int));
-
-	max_value = get_max_value(array, size);
 
 	for (i = 0; i <= (size_t)max_value; i++)
 		count[i] = 0;
@@ -56,5 +56,9 @@ void counting_sort(int *array, size_t size)
 	}
 	for (i = 0; i < size; i++)
 		array[i] = sorted[i];
+
+	print_array(count, max_value + 1);
+
 	free(count);
+	free(sorted);
 }
